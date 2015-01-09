@@ -1,0 +1,10 @@
+Package: regbook
+Title: Regression Book
+Version: 0.1.0
+Authors@R: c(person(given="Hyun-Jo", family="You", role=c("aut", "cre"), email="youhyunjo@ssu.ac.kr"),
+	     person("Gung Seog", "Kang", role="aut"))
+Description: This package accompanies Linear Regression Analysis using R.
+Depends: R (>= 3.1.2)
+License: GPL (>= 2)
+LazyData: true
+Encoding: UTF-8
