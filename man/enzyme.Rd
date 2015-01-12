@@ -4,7 +4,7 @@
 \alias{enzyme}
 
 \title{
-  효소의 반응 속도
+  enzyme
 }
 
 \description{

@@ -4,7 +4,7 @@
 \alias{hald}
 
 \title{
-  시멘트가 굳을 때 발생하는 열량
+  hald
 }
 
 \description{ 자료 \code{hald}는 1932년 미국 화학공학 학회지에 발표된

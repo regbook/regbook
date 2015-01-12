@@ -4,7 +4,7 @@
 \alias{bug}
 
 \title{
-  살충제의 독성 실험
+  bug
 }
 
 \description{

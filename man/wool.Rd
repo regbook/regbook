@@ -4,12 +4,12 @@
 \alias{wool}
 
 \title{
-  양모의 세기
+  wool
 }
 
 \description{
 자료 \code{wool}는 Box & Cox의 1964년 논문에서 사용한 예제로, 양모의
-강력을 알아보기 위해 \deqn(3^3) 요인실험을 수행한 결과이다.
+강력을 알아보기 위해 \deqn{3^3}{3^3} 요인실험을 수행한 결과이다.
 }
 
 \usage{wool}

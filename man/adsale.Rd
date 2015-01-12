@@ -4,7 +4,7 @@
 \alias{adsale}
 
 \title{
-  광고비와 판매액의 관계
+  adsale
 }
 
 \description{
