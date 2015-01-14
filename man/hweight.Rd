@@ -29,9 +29,9 @@ lines(density(x))
 }
 
 \references{
-  ...
 }
 
-\source{ ... }
+\source{
+}
 
 \keyword{datasets}

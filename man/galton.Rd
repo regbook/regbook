@@ -22,6 +22,7 @@
   Weisberg. 1985.
 }
 
-\source{ ... }
+\source{
+}
 
 \keyword{datasets}
