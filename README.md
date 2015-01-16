@@ -29,7 +29,7 @@
       publisher={교우사}
     }
 
-강근석, 김충락. 2010. 회귀분석 (2판). 교우사.
+김충락, 강근석. 2010. 회귀분석 (2판). 교우사.
 [[daum](http://book.daum.net/detail/book.do?bookid=KOR9788981728304)]
 [[google](https://books.google.co.kr/books?id=eaB7RQAACAAJ)]
 
@@ -37,7 +37,7 @@
     @book{kangreg2010,
       title={회귀분석},
 	  edition={2판},
-      author={강근석 and 김충락},
+      author={김충락 and 강근석},
       isbn={9788981728304},
       year={2010},
       publisher={교우사}
