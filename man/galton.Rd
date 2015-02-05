@@ -18,6 +18,14 @@
     }
 }
 
+\examples{
+  with(galton, {
+    son <- sheight * 2.54
+    father <- fheight * 2.54
+    plot(son ~ father)
+  })
+}
+
 \references{
   Weisberg. 1985.
 }

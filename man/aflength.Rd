@@ -22,6 +22,13 @@
     }
 }
 
+\examples{
+  plot(foot ~ forearm, aflength)
+  aflength.lm <- lm(foot ~ forearm, aflength)
+  abline(aflength.lm)
+  with(aflength, lines(lowess(forearm, foot), col="red"))
+}
+
 \references{
 }
 

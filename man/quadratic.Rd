@@ -19,6 +19,13 @@
     }
 }
 
+\examples{
+  plot(y ~ x, quadratic)
+  abline(lm(y ~ x, quadratic))
+  with(quadratic, lines(lowess(x, y), lty=2))
+  legend("topleft", legend=c("lm", "lowess"), lty=1:2)
+}
+
 \references{
 }
 
