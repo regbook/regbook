@@ -2,3 +2,4 @@
 
 export(dbvnorm)
 export(histf)
+export(rpredict)
