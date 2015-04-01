@@ -3,6 +3,7 @@
 #' @param object lm object. simple linear regression.
 #' @param level tolerance/confidence level
 #' @param legend legend location. See \code{\link[graphics]{legend}}
+#' @export
 fitplot <- function(object, level=0.95,
                     legend=c("none", "topleft")) {
     mod <- object

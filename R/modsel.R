@@ -9,6 +9,7 @@
 rpredict <- function(model, ...) UseMethod("rpredict")
 
 #' @rdname rpredict
+#' @export
 rpredict.lm <- function(model, infl = lm.influence(model, do.coef=FALSE)) {
     res <- infl$wt.res / (1 - infl$hat)
     res[is.infinite(res)] <- NaN
