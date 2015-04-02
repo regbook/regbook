@@ -17,12 +17,17 @@ rpredict.lm <- function(model, infl = lm.influence(model, do.coef=FALSE)) {
 }
 
 #' Predicted Residual Sum of Squares
-#' 
-press <- function(object) {
-    pr <- 
+#'
+#' @export
+press <- function(model, ...) UseMethod("press")
+
+#' @rdname press
+#' @export
+press.lm <- function(model) {
+    pr <- rpredict(model)
     prss <- sum(pr^2)
 
-    y <- model.response(object$model)
+    y <- model.response(model$model)
     sst <- sum((y - mean(y))^2)
     pr.r.sq <- 1 - prss / sst
     list(PRESS=prss, pred.r.squared=pr.r.sq)

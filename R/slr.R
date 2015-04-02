@@ -14,7 +14,7 @@ fitplot <- function(object, level=0.95,
     x <- model.matrix(mod)[, xname]
     
     ## compute confidence and prediction intervals
-    xs <- with(aflength, seq(min(x), max(x), length.out=100))
+    xs <- seq(min(x), max(x), length.out=100)
     newdata <- data.frame(xs)
     colnames(newdata) <- xname
     ci <- predict(mod, newdata=newdata, interval="confidence", level=level)
