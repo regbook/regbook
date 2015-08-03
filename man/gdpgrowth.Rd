@@ -14,9 +14,8 @@
 
 \usage{gdpgrowth}
 
-\format{이 데이터프레임은 다음과 같은 열로 구성되어 있다.
+\format{이 데이터프레임은 다음과 같은 열로 구성되어 있다. 열의 이름은 국가명이다.
   \describe{
-    \item{country}{국가명}
     \item{gdp}{국내총생산 증가(growth in grosss deomestic product per worker)}
     \item{lfg}{노동력 증가(labor force growth)}
     \item{eqp}{설비투자(equipment investment)}
