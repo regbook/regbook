@@ -4,7 +4,7 @@ Version: 0.9.0
 Authors@R: c(person(given="Hyun-Jo", family="You", role=c("aut", "cre"), email="youhyunjo@ssu.ac.kr"),
 	     person("Gun Seog", "Kang", role="aut"))
 Description: ...
-Depends: R (>= 2.15.0)
+Depends: R (>= 2.15.0), MASS
 License: GPL (>= 2)
 LazyData: true
 Encoding: UTF-8
