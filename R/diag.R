@@ -1,4 +1,3 @@
-
 #' Variance Inflation Factor and Collinearity Diagnostics
 #' @param mod an R object
 #' @param ... further arguments pass to or from other methods
@@ -62,4 +61,62 @@ print.summary.vif <- function(obj, digits=max(3L, getOption("digits") - 3L), ...
     rownames(mat) <- 1:nrow(mat)
     print.default(mat)
     
+}
+
+
+
+##' Extract Standardized Coefficients
+##'
+##' @param mod 
+##' @param ... 
+##' @export
+stdcoef <- function(mod, ...) {
+    UseMethod("stdcoef")
+}
+
+#' @rdname stdcoef
+##' @export
+stdcoef.lm <- function(mod, ...) {
+  X <- model.matrix(mod)
+  y <- model.response(mod$model)
+  Sjj <- diag(t(X) %*% X) - nrow(X) * colMeans(X)^2
+  SYY <- sum(y^2) - length(y) * mean(y)^2
+  sqrt(Sjj/SYY) * coef(mod)
+}
+
+##' Add Standardized Coefficients
+##'
+##' @param mod 
+##' @param ...
+##' @export
+lmbeta <- function(mod, ...) {
+    UseMethod("lmbeta")
+}
+
+##' @rdname lmbeta
+##' @export
+lmbeta.lm <- function(mod, ...) {
+  mod$standardized.coefficients <- stdcoef(mod)
+  class(mod) <- c("lmbeta", class(mod))
+  mod
+}
+
+##' @rdname lmbeta
+##' @export
+print.lmbeta <- function(obj, ...) {
+  cat("\nCall:\n")
+  print(obj$call, ...)
+  cat("\nStandardized Coefficients:\n")
+  print(obj$standardized.coefficients, ...)
+  cat("\nCoefficients:\n")
+  print(obj$coefficients)
+  cat("\n")
+}
+
+##' @rdname lmbeta
+##' @export
+summary.lmbeta <- function(obj, ...) {
+  ans <- summary.lm(obj)
+  ans$coefficients <- cbind("Std. Coef"=obj$standardized.coefficients, ans$coefficients)
+  ans
 }
