@@ -117,6 +117,6 @@ print.lmbeta <- function(obj, ...) {
 ##' @export
 summary.lmbeta <- function(obj, ...) {
   ans <- summary.lm(obj)
-  ans$coefficients <- cbind("Std. Coef"=obj$standardized.coefficients, ans$coefficients)
+  ans$coefficients <- cbind("BETA"=obj$standardized.coefficients, ans$coefficients)
   ans
 }
