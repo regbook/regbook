@@ -120,3 +120,62 @@ summary.lmbeta <- function(obj, ...) {
   ans$coefficients <- cbind("BETA"=obj$standardized.coefficients, ans$coefficients)
   ans
 }
+
+##' Mean and Variance of Data Subsets
+##'
+##' Splits the data into subsets according to the X levels, compute mean and
+##' variance of the response for each.
+##' 
+##' @param formula a formula, such as \code{y ~ x}, where the \code{y} variable are numeric data to be split into groups according to the grouping \code{x} variables.
+##' @param data a data frame
+##' @examples
+##' meanvar(Y ~ X, restaurant)
+##' plot(meanvar(Y ~ X, restaurant), sd ~ mean + I(mean^2))
+##' @export
+##' 
+meanvar <- function(formula, data, ..., na.action = na.omit) {
+  agg <- aggregate(formula, data=data,
+                   FUN=function(x) c(mean=mean(x), var=var(x)),
+                   ..., na.action = na.action)
+  nc <- ncol(agg)
+  xlevels <- agg[1:(nc-1)]
+  m <- agg[[nc]][,1]
+  v <- agg[[nc]][,2]
+
+  ans <- list(xlevels=xlevels, mean=m, var=v, call=match.call())
+  class(ans) <- c("meanvar")
+  ans
+}
+
+##' @rdname meanvar
+##' @export
+print.meanvar <- function(obj, ...) {
+  cat("\nCall:\n")
+  print(obj$call)
+  cat("\nMean and Variance:\n")
+  print(data.frame(xlevels=obj$xlevels, mean=obj$mean, var=obj$var))
+}
+
+##' @rdname meanvar
+##' @param obj an \code{meanvar} object
+##' @param formula mean-vairance relationship, for example, \code{sd ~ mean}, \code{sd ~ mean + I(mean^2)}, \code{var ~ mean}, etc.
+##' @export
+plot.meanvar <- function(obj, formula,...) {
+   if(missing(formula)) {
+     plot(obj$mean, obj$var, xlab="Mean", ylab="Variance")
+   } else {
+     nw <- data.frame(mean=seq(min(obj$mean), max(obj$mean), length.out=100))
+     if (formula[[2]] == "sd") {
+       ylab <- "Standard Deviation"
+       data <- data.frame(mean=obj$mean, sd=sqrt(obj$var))
+     } else if(formula[[2]] == "var") {
+       ylab <- "Variance"
+       data <- data.frame(mean=obj$mean, var=obj$var)
+     } else {
+       stop("formula must be 'sd ~ ' or 'var ~ '")
+     }
+     plot(data[,1], data[,2], xlab="Mean", ylab=ylab)
+     lines(nw$m, predict(lm(formula, data=data), newdata=nw))
+  }
+}
+
