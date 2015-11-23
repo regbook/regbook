@@ -14,17 +14,16 @@
 histf <- function(x, breaks=sqrt(length(x)), length.out=100, rug=FALSE, boxplot=FALSE, fill="lightblue",
                   main=paste("Histogram of", xname),
                   densityFunction=function(y) dnorm(y, mean(x), sd(x)),
-                  densityName="normal",
+                  densityName="normal", xrange=extendrange(c(min(x), max(x))), 
                   ...) {
     op <- par(no.readonly=TRUE)
     on.exit(par(op))
     xname <- deparse(substitute(x))
-    xrange <- extendrange(c(min(x), max(x)))
 
     hist.and.density <- function(...) {
         hist(x, probability=TRUE, breaks=breaks, xlim=xrange, col=fill, main=main, ...)
         lines(density(x), col=1, lty=3, ...)
-        xgrid <- seq(min(x), max(x), length.out=length.out)
+        xgrid <- seq(xrange[1], xrange[2], length.out=length.out)
         lines(xgrid, densityFunction(xgrid), lty=1, col=2)
         legend("topright", legend=c("kernel", densityName), lty=c(3, 1), col=1:2)
         if(rug) rug(x)

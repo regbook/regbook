@@ -7,7 +7,7 @@
 histf(x, breaks = sqrt(length(x)), length.out = 100, rug = FALSE,
   boxplot = FALSE, fill = "lightblue", main = paste("Histogram of",
   xname), densityFunction = function(y) dnorm(y, mean(x), sd(x)),
-  densityName = "normal", ...)
+  densityName = "normal", xrange = extendrange(c(min(x), max(x))), ...)
 }
 \arguments{
 \item{x}{a numeric vector}
