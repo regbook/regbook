@@ -149,6 +149,12 @@ meanvar <- function(formula, data, ..., na.action = na.omit) {
 
 ##' @rdname meanvar
 ##' @export
+as.data.frame.meanvar <- function(obj, ...) {
+    data.frame(obj$xlevels, mean=obj$mean, var=obj$var)
+}
+
+##' @rdname meanvar
+##' @export
 print.meanvar <- function(obj, ...) {
   cat("\nCall:\n")
   print(obj$call)
