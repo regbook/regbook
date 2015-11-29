@@ -17,9 +17,9 @@
 
 \format{이 데이터프레임은 다음과 같은 열로 구성되어 있다.
   \describe{
-    \item{Y}{판매액(백만원)}
-    \item{X}{광고비(백만원)}
-    \item{Z}{광고매체}
+    \item{sale}{판매액(백만원)}
+    \item{ad}{광고비(백만원)}
+    \item{media}{광고매체}
     }
 }
 
