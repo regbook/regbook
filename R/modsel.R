@@ -23,13 +23,14 @@ press <- function(model, ...) UseMethod("press")
 
 #' @rdname press
 #' @export
-press.lm <- function(model) {
+press.lm <- function(model, ...) {
     pr <- rpredict(model)
     prss <- sum(pr^2)
 
     y <- model.response(model$model)
     sst <- sum((y - mean(y))^2)
     pr.r.sq <- 1 - prss / sst
+    pr.r.sq <- ifelse(pr.r.sq < 0, 0, pr.r.sq)
     list(PRESS=prss, pred.r.squared=pr.r.sq)
 }
 
@@ -64,7 +65,7 @@ print.summaryf.regsubsets <- function(object, ...)  {
 ##' @param ... 
 ##' @export
 press.regsubsets <- function(object, ...) {
-    vars <- all.vars(rgs$call)
+    vars <- all.vars(object$call)
     respname <- vars[1]
 
     dfname <- vars[length(vars)]

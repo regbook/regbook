@@ -7,7 +7,7 @@
 \usage{
 press(model, ...)
 
-\method{press}{lm}(model)
+\method{press}{lm}(model, ...)
 }
 \description{
 Predicted Residual Sum of Squares
