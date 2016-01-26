@@ -56,8 +56,8 @@ summary.vif <- function(obj, ...) {
 print.summary.vif <- function(obj, digits=max(3L, getOption("digits") - 3L), ...) {
     cat("\nVIF:\n")
     print.default(obj$VIF, digits = digits, ...)
-    cat("\nProportion of Variation:\n")
-    mat <- cbind(Eigenvalues=obj$eigenvalues, "Condition Index"=obj$condition.index, obj$proportion.of.variation)
+    cat("\nVariance Proportion:\n")
+    mat <- cbind(Eigenvalues=obj$eigenvalues, "Cond.Index"=obj$condition.index, obj$proportion.of.variation)
     rownames(mat) <- 1:nrow(mat)
     print.default(mat)
     
