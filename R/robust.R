@@ -51,7 +51,7 @@ plot.rlm <- function(object, which=c(7L:8L), ask = prod(par("mfcol")) < length(w
         dev.hold()
         plot(mahala.dd, mcd.dd, xlab="Mahalanobis Distance", ylab="Robust MCD Distance")
         abline(0, 1, lty=3, col=2)
-        abline(h=3, lty=3, col=2)
+        abline(h=sqrt(qchisq(0.975, object$rank - 1)), lty=3, col=2)
         ids <- which(mcd.dd > 3)
         text.id(mahala.dd[ids], mcd.dd[ids], ids)
         dev.flush()
