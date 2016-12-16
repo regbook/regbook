@@ -17,6 +17,19 @@
 
 ### 참고문헌
 
+강근석, 유현조. 2016. R을 활용한 선형회귀분석. 교우사.
+[[daum](http://book.daum.net/detail/book.do?bookid=KOR9791125101505)]
+
+    @book{kangreg2016,
+      title={(R을 활용한) 선형회귀분석},
+      author={강근석 and 유현조},
+      isbn={9791125101505},
+      year={2016},
+      publisher={교우사},
+   }
+      
+      
+      
 강근석, 김충락. 2013. SAS를 활용한 선형회귀분석. 교우사.
 [[daum](http://book.daum.net/detail/book.do?bookid=KOR9788981729592)]
 [[google](https://books.google.co.kr/books?id=QSLcmQEACAAJ)]
