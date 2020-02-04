@@ -24,10 +24,8 @@ plot.rlm <- function(object, which=c(7L:8L), ask = prod(par("mfcol")) < length(w
     }
 
     text.id <- function(x, y, ind, adj.x = TRUE) {
-        labpos <-
-            if(adj.x) label.pos[1+as.numeric(x > mean(range(x)))] else 3
-        text(x, y, labels.id[ind], cex = cex.id, xpd = TRUE,
-             pos = labpos, offset = 0.25)
+        labpos <- ifelse(adj.x, label.pos[1+as.numeric(x > mean(range(x)))],  3)
+        text(x, y, labels.id[ind], cex = cex.id, xpd = TRUE, pos = labpos, offset = 0.25)
     }
 
     if (any(show[7L:8L])) {
@@ -42,7 +40,7 @@ plot.rlm <- function(object, which=c(7L:8L), ask = prod(par("mfcol")) < length(w
         grid()
         abline(h=c(-3, 3), v=sqrt(qchisq(0.975, object$rank - 1)), lty=3, col=2)
         ids <- which(abs(r) > 3 | mcd.dd > 3)
-        text.id(mcd.dd[ids], r[ids], ids)
+        if(length(ids) > 0) text.id(mcd.dd[ids], r[ids], ids)
         dev.flush()
     }
     if (show[8L]) {
@@ -53,7 +51,7 @@ plot.rlm <- function(object, which=c(7L:8L), ask = prod(par("mfcol")) < length(w
         abline(0, 1, lty=3, col=2)
         abline(h=sqrt(qchisq(0.975, object$rank - 1)), lty=3, col=2)
         ids <- which(mcd.dd > 3)
-        text.id(mahala.dd[ids], mcd.dd[ids], ids)
+        if(length(ids) > 0) text.id(mahala.dd[ids], mcd.dd[ids], ids)
         dev.flush()
     }
     
