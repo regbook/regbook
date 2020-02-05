@@ -22,10 +22,10 @@ histf <- function(x, breaks=sqrt(length(x)), length.out=100, rug=FALSE, boxplot=
 
     hist.and.density <- function(...) {
         hist(x, probability=TRUE, breaks=breaks, xlim=xrange, col=fill, main=main, ...)
-        lines(density(x), col=1, lty=3, ...)
+        lines(density(x), col=2, lty=1, ...)
         xgrid <- seq(xrange[1], xrange[2], length.out=length.out)
-        lines(xgrid, densityFunction(xgrid), lty=1, col=2)
-        legend("topright", legend=c("kernel", densityName), lty=c(3, 1), col=1:2)
+        lines(xgrid, densityFunction(xgrid), lty=2, col=1)
+        legend("topright", legend=c("kernel", densityName), lty=c(1, 2), col=c(2, 1))
         if(rug) rug(x)
     }
     if(boxplot) {
