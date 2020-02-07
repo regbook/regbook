@@ -16,8 +16,9 @@ vif.lm <- function(mod, ...) {
         S <- S[-1, -1]
     }
     R <- cov2cor(S)
-    k <- ncol(R)
-    VIF <- sapply(1:k, function(i) det(R[-i, -i])) / det(R)
+    ##k <- ncol(R)
+    ##VIF <- sapply(1:k, function(i) det(R[-i, -i])) / det(R)
+    VIF <- diag(solve(R))
     names(VIF) <- colnames(R)
 
     ans <- list(VIF=VIF, design.matrix=mat)
