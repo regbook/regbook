@@ -1,5 +1,7 @@
 ## 선형회귀분석
 
+- http://regbook.github.io/
+
 ### 설치
 
     install.packages("devtools")
