@@ -4,7 +4,7 @@
 
     install.packages("devtools")
     library(devtools)
-    install_github("ssustat/regbook")
+    install_github("regbook/regbook")
     library(regbook)
 
 윈도우즈에서 `devtools` 설치하면 `Rtools`를 추가로 설치하라는 경고가 나오지만
@@ -12,7 +12,7 @@
 
 리눅스에서 `install_github()` 함수 사용시 오류가 나는 경우에:
 
-    install_git("https://github.com/ssustat/regbook")
+    install_git("https://github.com/regbook/regbook")
 
 
 ### 참고문헌
