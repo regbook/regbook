@@ -18,7 +18,7 @@
 ### 참고문헌
 
 강근석, 유현조. 2016. R을 활용한 선형회귀분석. 교우사.
-[[daum](http://book.daum.net/detail/book.do?bookid=KOR9791125101505)]
+[[naver](https://book.naver.com/bookdb/book_detail.nhn?bid=10347606)]
 
     @book{kangreg2016,
       title={(R을 활용한) 선형회귀분석},
@@ -30,7 +30,6 @@
       
       
 강근석, 김충락. 2013. SAS를 활용한 선형회귀분석. 교우사.
-[[daum](http://book.daum.net/detail/book.do?bookid=KOR9788981729592)]
 [[google](https://books.google.co.kr/books?id=QSLcmQEACAAJ)]
 
     @book{kangreg2013,
@@ -42,7 +41,6 @@
     }
 
 김충락, 강근석. 2010. 회귀분석 (2판). 교우사.
-[[daum](http://book.daum.net/detail/book.do?bookid=KOR9788981728304)]
 [[google](https://books.google.co.kr/books?id=eaB7RQAACAAJ)]
 
 
